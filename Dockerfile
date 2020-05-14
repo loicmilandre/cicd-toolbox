@@ -1,15 +1,7 @@
-FROM debian:buster-slim
-
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install python-dev python-pip && \
-    apt-get clean
-
+FROM python:latest
+ENV OS_CLOUD=""
 RUN pip install --upgrade pip
-
-RUN pip install python-openstackclient
-
+RUN pip install python-openstackclient python-heatclient python-neutronclient
 RUN pip install python-novaclient \
                 python-neutronclient \
                 python-glanceclient \
@@ -30,9 +22,10 @@ RUN pip install python-barbicanclient \
                 python-saharaclient \
                 python-senlinclient \
                 python-swiftclient \
-                python-troveclient
-                #python-gnocchiclient
+                python-troveclient \
+                python-gnocchiclient
 
-VOLUME ["/data"]
-    
-CMD ["/bin/sh"]
+VOLUME /etc/openstack
+WORKDIR /etc/openstack
+ENTRYPOINT [ "/bin/bash", "-c" ]
+CMD [ "openstack" ]
