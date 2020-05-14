@@ -1,7 +1,11 @@
 FROM python:latest
+
 ENV OS_CLOUD=""
+
 RUN pip install --upgrade pip
+
 RUN pip install python-openstackclient python-heatclient python-neutronclient
+
 RUN pip install python-novaclient \
                 python-neutronclient \
                 python-glanceclient \
