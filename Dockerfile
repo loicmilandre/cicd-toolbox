@@ -26,7 +26,7 @@ RUN pip install python-barbicanclient \
                 python-saharaclient \
                 python-senlinclient \
                 python-swiftclient \
-                python-troveclient \
+                python-troveclient
                 #python-gnocchiclient
 
 RUN mkdir -p /etc/opentack
