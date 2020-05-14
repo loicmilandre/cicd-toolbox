@@ -1,11 +1,6 @@
-FROM debian:buster-slim
+FROM python:latest
 
-ENV DEBIAN_FRONTEND noninteractive
 ENV OS_CLOUD=""
-
-RUN apt-get update && apt-get -y upgrade && \
-    apt-get -y install python-dev python-pip && \
-    apt-get clean
 
 RUN pip install --upgrade pip
 
