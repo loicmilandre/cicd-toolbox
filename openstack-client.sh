@@ -8,7 +8,6 @@ else
         echo "Checking of Docker service : ERROR because Docker service is unavailable !" && exit 1
 fi
 
-
 if [[ -f "clouds.yaml" ]]; then
         echo "Checking of clouds.yaml : OK"
 else
