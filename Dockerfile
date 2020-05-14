@@ -27,7 +27,7 @@ RUN pip install python-barbicanclient \
                 python-senlinclient \
                 python-swiftclient \
                 python-troveclient \
-                python-gnocchiclient
+                #python-gnocchiclient
 
 VOLUME /etc/openstack
 WORKDIR /etc/openstack
