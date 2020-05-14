@@ -14,7 +14,6 @@ RUN pip install python-novaclient \
                 python-octaviaclient \
                 python-keystoneclient
                 
-
 RUN pip install python-barbicanclient \
                 python-ceilometerclient \
                 python-cloudkittyclient \
