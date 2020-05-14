@@ -29,7 +29,7 @@ RUN pip install python-barbicanclient \
                 python-troveclient
                 #python-gnocchiclient
 
-RUN mkdir -p /etc/opentack
+RUN mkdir /etc/openstack
 VOLUME /etc/openstack
 WORKDIR /etc/openstack
 ENTRYPOINT [ "/bin/bash", "-c" ]
