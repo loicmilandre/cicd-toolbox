@@ -1,4 +1,4 @@
-FROM python:latest-alpine
+FROM python:alpine3.11
 
 ENV OS_CLOUD=""
 
