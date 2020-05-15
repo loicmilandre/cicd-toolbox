@@ -13,10 +13,10 @@ RUN pip install python-novaclient \
                 python-glanceclient \
                 python-cinderclient \
                 python-heatclient \
-                python-octaviaclient \
                 python-keystoneclient
                 
 RUN pip install python-barbicanclient \
+                python-octaviaclient \
                 python-ceilometerclient \
                 python-cloudkittyclient \
                 python-designateclient \
