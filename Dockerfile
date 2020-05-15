@@ -32,10 +32,10 @@ RUN pip install python-barbicanclient \
                 python-troveclient
                 #python-gnocchiclient
                 
-RUN apk del gcc libffi-dev musl-dev openssl-dev pkgconf linux-headers
+RUN apk del gcc libffi-dev musl-dev openssl-dev linux-headers libgcc libstdc++ binutils gmp isl libgomp libatomic mpfr4 mpc1 pkgconf
 
 RUN mkdir /etc/openstack
 VOLUME /etc/openstack
 WORKDIR /etc/openstack
-ENTRYPOINT [ "/bin/bash", "-c" ]
+ENTRYPOINT [ "/bin/sh", "-c" ]
 CMD [ "openstack" ]
