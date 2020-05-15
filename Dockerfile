@@ -2,7 +2,7 @@ FROM python:alpine3.11
 
 ENV OS_CLOUD=""
 
-RUN apk update && apk add gcc libffi-dev openssl-dev linux-headers
+RUN apk update && apk add gcc libffi-dev musl-dev openssl-dev linux-headers
 
 RUN pip install --upgrade pip
 
@@ -32,7 +32,7 @@ RUN pip install python-barbicanclient \
                 python-troveclient
                 #python-gnocchiclient
                 
-RUN apk del gcc libffi-dev openssl-dev pkgconf linux-headers && apk cache clean
+RUN apk del gcc libffi-dev musl-dev openssl-dev pkgconf linux-headers && apk cache clean
 
 RUN mkdir /etc/openstack
 VOLUME /etc/openstack
