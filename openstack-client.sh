@@ -18,7 +18,7 @@ function system_check {
 
 function run_client {
         OSCLOUD=$1
-        docker run -it --rm -v $PWD:/etc/openstack -e "OS_CLOUD=$OSCLOUD" --name openstack-client loicmilandre/openstack-client:latest
+        docker run --net=host -it --rm -v $PWD:/etc/openstack -e "OS_CLOUD=$OSCLOUD" --name openstack-client loicmilandre/openstack-client:latest
 }
 
 function usage {
