@@ -1,4 +1,4 @@
-FROM linux/x86_64/python:alpine3.11
+FROM python:alpine3.11
 
 ENV OS_CLOUD=""
 
