@@ -32,7 +32,7 @@ RUN pip install python-barbicanclient \
                 python-troveclient
                 #python-gnocchiclient
                 
-RUN apk del gcc libffi-dev libssl-dev linux-headers apk cache clean
+RUN apk del gcc libffi-dev libssl-dev linux-headers && apk cache clean
 
 RUN mkdir /etc/openstack
 VOLUME /etc/openstack
