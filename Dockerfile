@@ -2,7 +2,7 @@ FROM python:alpine3.11
 
 ENV OS_CLOUD=""
 
-RUN apk update && apk add gcc libffi-dev musl-dev linux-headers
+RUN apk update && apk add gcc libffi-dev linux-headers
 
 RUN pip install --upgrade pip
 
