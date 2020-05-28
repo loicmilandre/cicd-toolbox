@@ -18,7 +18,8 @@ function system_check {
 
 function run_client {
         OSCLOUD=$1
-        docker run -it --rm -v $PWD:/etc/openstack -e "OS_CLOUD=$OSCLOUD" --name openstack-client-$USER loicmilandre/openstack-client:latest
+	CMD=$2
+        docker run -it --rm -v $PWD:/etc/openstack -e "OS_CLOUD=$OSCLOUD" --name openstack-client-$USER loicmilandre/openstack-client:latest $CMD
 }
 
 function usage {
@@ -31,7 +32,7 @@ while true; do
     case "$1" in 
         -c) if [ -z $2 ]; then echo "Missing cloud name" && exit 1; fi
                 system_check
-		run_client $2
+		run_client $2 $3
 		break
 		;;
 	-h) usage
