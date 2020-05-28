@@ -19,7 +19,7 @@ function system_check {
 function run_client {
         OSCLOUD=$1
 	CMD=$2
-        docker run -it --rm -v $PWD:/etc/openstack -e "OS_CLOUD=$OSCLOUD" --name openstack-client-$USER loicmilandre/openstack-client:latest $CMD
+        docker run -it --rm -v $PWD:/etc/openstack -e PYTHONWARNINGS="ignore:Unverified HTTPS request" -e "OS_CLOUD=$OSCLOUD" --name openstack-client-$USER loicmilandre/openstack-client:latest $CMD
 }
 
 function usage {
