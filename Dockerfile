@@ -37,4 +37,4 @@ RUN apk del gcc libffi-dev musl-dev openssl-dev linux-headers libgcc libstdc++ b
 RUN mkdir /etc/openstack
 VOLUME /etc/openstack
 WORKDIR /etc/openstack
-ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "/bin/sh" ]
