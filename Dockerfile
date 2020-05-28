@@ -38,4 +38,4 @@ RUN mkdir /etc/openstack
 VOLUME /etc/openstack
 WORKDIR /etc/openstack
 ENTRYPOINT [ "/bin/sh", "-c" ]
-CMD [ "openstack" ]
+CMD [ "openstack", "--insecure" ]
