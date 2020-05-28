@@ -2,7 +2,7 @@ FROM python:alpine3.11
 
 ENV PYTHONWARNINGS="ignore:Unverified HTTPS request"
 
-RUN apk update && apk add gcc libffi-dev musl-dev openssl-dev linux-headers
+RUN apk update && apk add gcc libffi-dev musl-dev openssl-dev linux-headers bash
 
 RUN pip install --upgrade pip
 
@@ -37,4 +37,4 @@ RUN apk del gcc libffi-dev musl-dev openssl-dev linux-headers libgcc libstdc++ b
 RUN mkdir /etc/openstack
 VOLUME /etc/openstack
 WORKDIR /etc/openstack
-ENTRYPOINT [ "/bin/sh" ]
+ENTRYPOINT [ "/bin/bash" ]
