@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker run -it --rm -v $PWD:/etc/openstack --name openstack-client-$USER loicmilandre/openstack-client:latest
+podman run -it --rm -v $PWD:/etc/openstack --name openstack-client-$USER openstack-client:latest
 
