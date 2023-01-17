@@ -1,3 +1,3 @@
 #!/bin/bash
 
-podman build -t openstack-client .
+podman build -t cicd-toolbox .
