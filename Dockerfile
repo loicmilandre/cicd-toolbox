@@ -5,7 +5,8 @@ ENV PYTHONWARNINGS="ignore:Unverified HTTPS request"
 RUN apk update && apk add --no-cache git \
                                      gcc \
                                      curl \
-                                     vim
+                                     vim \
+                                     jq
 
 RUN apk add --no-cache --virtual /tmp/.template_build_deps libc-dev \
                                                            python3-dev \
@@ -30,6 +31,8 @@ RUN pip install --no-cache-dir setuptools \
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl             
 RUN sudo mv ./kubectl /usr/local/bin/kubectl
+
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 RUN apk del /tmp/.template_build_deps
 
