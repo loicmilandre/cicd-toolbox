@@ -13,7 +13,8 @@ RUN apk add --no-cache --virtual /tmp/.template_build_deps libc-dev \
                                                            libressl-dev \
                                                            openssl-dev
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir yamllint \
+RUN pip install --no-cache-dir setuptools \
+                               yamllint \
                                ansible \ 
                                python-openstackclient \
                                python-novaclient \
