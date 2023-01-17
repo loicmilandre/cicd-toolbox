@@ -2,8 +2,7 @@ FROM python:alpine3.17
 
 ENV PYTHONWARNINGS="ignore:Unverified HTTPS request"
 
-RUN apk update
-RUN apk add --no-cache git gcc
+RUN apk update && apk add --no-cache git gcc
 RUN apk add --no-cache --virtual /tmp/.template_build_deps libc-dev \
                                                            python3-dev \
                                                            libxslt-dev \
