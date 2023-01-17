@@ -2,22 +2,30 @@ FROM python:alpine3.17
 
 ENV PYTHONWARNINGS="ignore:Unverified HTTPS request"
 
-RUN apk update && apk add gcc libffi-dev musl-dev openssl-dev linux-headers bash
-
+RUN apk update
+RUN apk add --no-cache git gcc
+RUN apk add --no-cache --virtual /tmp/.template_build_deps libc-dev \
+                                                           python3-dev \
+                                                           libxslt-dev \
+                                                           libxml2-dev \
+                                                           musl-dev \
+                                                           libffi-dev \
+                                                           libressl-dev \
+                                                           openssl-dev
 RUN pip install --upgrade pip
-
-RUN pip install python-openstackclient
-
-RUN pip install python-novaclient \
-                python-neutronclient \
-                python-glanceclient \
-                python-cinderclient \
-                python-heatclient \
-                python-keystoneclient
+RUN pip install --no-cache-dir yamllint \
+                               ansible \ 
+                               python-openstackclient \
+                               python-novaclient \
+                               python-neutronclient \
+                               python-glanceclient \
+                               python-cinderclient \
+                               python-heatclient \
+                               python-keystoneclient
                 
-RUN apk del gcc libffi-dev musl-dev openssl-dev linux-headers libgcc libstdc++ binutils gmp isl25 libgomp libatomic mpfr4 mpc1 pkgconf
+RUN apk del /tmp/.template_build_deps
 
-RUN mkdir /etc/openstack
-VOLUME /etc/openstack
-WORKDIR /etc/openstack
+RUN mkdir /etc/cicd-toolbox
+VOLUME /etc/cicd-toolbox
+WORKDIR /etc/cicd-toolbox
 ENTRYPOINT [ "/bin/sh" ]
