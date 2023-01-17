@@ -1,3 +1,3 @@
 #!/bin/bash
 
-podman save openstack-client -o openstack-client.tar
+podman save cicd-toolbox -o cicd-toolbox.tar
