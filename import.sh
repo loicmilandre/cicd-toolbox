@@ -1,3 +1,3 @@
 #!/bin/bash
 
-podman import --change "CMD /bin/sh" openstack-client.tar openstack-client
+podman load -i cicd-toolbox.tar cicd-toolbox
