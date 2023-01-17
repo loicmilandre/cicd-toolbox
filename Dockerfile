@@ -7,7 +7,8 @@ RUN apk update && apk add --no-cache git \
                                      curl \
                                      vim \
                                      jq \
-                                     openssl
+                                     openssl \
+                                     bash
 
 RUN apk add --no-cache --virtual /tmp/.template_build_deps libc-dev \
                                                            python3-dev \
