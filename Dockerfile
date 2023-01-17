@@ -1,4 +1,4 @@
-FROM python:alpine3.11
+FROM python:alpine3.17
 
 ENV PYTHONWARNINGS="ignore:Unverified HTTPS request"
 
@@ -15,24 +15,7 @@ RUN pip install python-novaclient \
                 python-heatclient \
                 python-keystoneclient
                 
-RUN pip install python-barbicanclient \
-                python-octaviaclient \
-                python-ceilometerclient \
-                python-cloudkittyclient \
-                python-designateclient \
-                python-fuelclient \
-                python-magnumclient \
-                python-manilaclient \
-                python-mistralclient \
-                python-monascaclient \
-                python-muranoclient \
-                python-saharaclient \
-                python-senlinclient \
-                python-swiftclient \
-                python-troveclient
-                #python-gnocchiclient
-                
-RUN apk del gcc libffi-dev musl-dev openssl-dev linux-headers libgcc libstdc++ binutils gmp isl libgomp libatomic mpfr4 mpc1 pkgconf
+RUN apk del gcc libffi-dev musl-dev openssl-dev linux-headers libgcc libstdc++ binutils gmp isl25 libgomp libatomic mpfr4 mpc1 pkgconf
 
 RUN mkdir /etc/openstack
 VOLUME /etc/openstack
