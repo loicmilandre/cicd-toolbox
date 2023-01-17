@@ -33,8 +33,11 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 RUN chmod +x ./kubectl             
 RUN sudo mv ./kubectl /usr/local/bin/kubectl
 
-RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+RUN chmod 700 get_helm.sh
+RUN ./get_helm.sh
 
+RUN rm ./get_helm.sh
 RUN apk del /tmp/.template_build_deps
 
 RUN mkdir /etc/cicd-toolbox
