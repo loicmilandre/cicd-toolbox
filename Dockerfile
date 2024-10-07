@@ -34,8 +34,8 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 RUN chmod +x ./kubectl             
 RUN mv ./kubectl /usr/local/bin/kubectl
 
-RUN curl -LO https://releases.hashicorp.com/terraform/1.3.7/terraform_1.3.7_linux_amd64.zip
-RUN unzip terraform_1.3.7_linux_amd64.zip -d /usr/local/bin
+RUN curl -LO https://releases.hashicorp.com/terraform/1.9.7/terraform_1.9.7_linux_amd64.zip
+RUN unzip terraform_1.9.7_linux_amd64.zip -d /usr/local/bin
 
 RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 RUN chmod 700 get_helm.sh
